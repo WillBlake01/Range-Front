@@ -1,34 +1,41 @@
-import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Social from './Social';
 
 const StyledFooter = styled.footer`
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 140px;
-  background-color: ${props => props.theme.green};
-  text-align: right;
-    a {
-      padding-right: 24px;
+  background-color: var(--green);
+
+  .github-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--offWhite);
+    height: max-content;
+    > * {
+        margin: 0 4px 0 4px; 
     }
-      .footer-block {
-        position: relative;
-        top: 42px;
-        text-align: center;
-        color: ${props => props.theme.white};
-      }
+}
+`;
+
+const SocialPosition = styled.div`
+  
 `;
 
 const Footer = () => (
   <StyledFooter>
-    <Social />
-    <p className='footer-block'>
-      <Link href='https://github.com/willblake01/range-front'>
-        <a target='_blank'>
-          <i aria-hidden='true'>Repository Link</i>
-        </a>
-      </Link> Created By: Will Blake 2018 &copy;
-    </p>
+    <Link href='https://github.com/willblake01/range-front'>
+      <a className='github-link' target='_blank' rel='noopener noreferrer'>
+        <i className="fab fa-github-alt"></i>
+        <p>Created By: Will Blake 2018 &copy;</p>
+      </a>
+    </Link>
+    <SocialPosition>
+      <Social />
+    </SocialPosition>
   </StyledFooter>
 )
 
